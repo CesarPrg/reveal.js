@@ -1,0 +1,64 @@
+Instalación:
+
+Ofrecemos tres formas diferentes de instalar revelar.js según su caso de uso y experiencia técnica.
+
+.- La configuración básica es la forma más fácil de empezar. No es necesario configurar ninguna herramienta de compilación.
+.- La configuración completa le brinda acceso a las herramientas de compilación necesarias para realizar cambios en el código fuente de reveal.js. 
+Incluye un servidor web que se requiere si desea cargar archivos Markdown externos 
+(la configuración básica combinada con su propia elección de servidor web local también funciona).
+.- Si desea utilizar reveal.js como una dependencia en su proyecto, puede instalarlo desde npm.
+
+Próximos pasos
+Una vez que se haya instalado reveal.js, le recomendamos que consulte las guías de opciones de marcado y configuración.
+
+Configuración básica
+Nos aseguramos de distribuir reveal.js de manera que pueda ser utilizado por tantas personas como sea posible. 
+La configuración básica es nuestra forma más accesible de comenzar y solo requiere que tenga un navegador web. 
+No es necesario pasar por un proceso de compilación ni instalar ninguna dependencia.
+
+Descargue la última versión de Reveal.js https://github.com/hakimel/reveal.js/archive/master.zip
+Descomprima y reemplace el contenido de ejemplo en index.html con el suyo propio
+Abra index.html en un navegador para verlo
+Eso es todo 🚀
+
+Configuración completa - Recomendado
+Algunas funciones deReveal.js, como el uso de Markdown externo, requieren que las presentaciones se ejecuten desde un servidor web local. 
+Las siguientes instrucciones configurarán dicho servidor, así como todas las tareas de desarrollo necesarias para realizar ediciones en el 
+código fuente de Reveal.js.
+
+1.- Instale Node.js (10.0.0 o posterior)
+2.- Clone el repositorio revela.js
+  $ clon de git https://github.com/hakimel/reveal.js.git
+3.- Mover a la carpeta revela.js e instalar las dependencias
+  $ cd revelar.js && npm instalar
+4.- Servir la presentación y monitorear los archivos de origen para detectar cambios
+  $ npm inicio
+5.- Abra http://localhost:8000 para ver su presentación
+
+Puerto del servidor de desarrollo
+El servidor de desarrollo tiene como valor predeterminado el puerto 8000. Puede usar el argumento del puerto para cambiar a uno diferente:
+
+  $ npm start -- --port=8001
+
+Instalación desde npm
+El framework se publica y se puede instalar desde npm. Tenga en cuenta que reveal.js está dirigido al navegador e incluye CSS, fuentes y otros activos, 
+por lo que el caso de uso de la dependencia de npm puede ser limitado.
+
+  $ npm install reveal.js
+  # o
+  $ yarn add reveal.js
+
+Una vez instalado, puede incluir reveal.js como un módulo ES:
+
+  import Reveal from 'reveal.js';
+  import Markdown from 'reveal.js/plugin/markdown/markdown.esm.js';
+
+  let deck = new Reveal({
+   plugins: [Markdown]
+  })
+  deck.initialize();
+
+También deberá incluir los estilos de reveal.js y un tema de presentación.
+
+<link rel="stylesheet" href="/node_modules/reveal.js/dist/reveal.css">
+<link rel="stylesheet" href="/node_modules/reveal.js/dist/theme/black.css">
