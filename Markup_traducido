@@ -1,0 +1,67 @@
+Margen
+Aquí hay un ejemplo básico de una presentación de unlock.js completamente funcional:
+  
+  <html>
+    <head>
+      <link rel="stylesheet" href="dist/reveal.css">
+      <link rel="stylesheet" href="dist/theme/white.css">
+    </head>
+    <body>
+      <div class="reveal">
+        <div class="slides">
+          <section>Slide 1</section>
+          <section>Slide 2</section>
+        </div>
+      </div>
+      <script src="dist/reveal.js"></script>
+      <script>
+        Reveal.initialize();
+      </script>
+    </body>
+  </html>
+  
+La jerarquía de marcado de la presentación debe ser .reveal > .slides > sección, donde el elemento de sección representa una diapositiva 
+y puede repetirse indefinidamente.
+
+Si coloca varios elementos de sección dentro de otra sección, se mostrarán como diapositivas verticales. 
+La primera de las diapositivas verticales es la "raíz" de las demás (en la parte superior), y se incluirá en la secuencia horizontal. 
+Por ejemplo:
+
+<div class="reveal">
+  <div class="slides">
+    <section>Horizontal Slide</section>
+    <section>
+      <section>Vertical Slide 1</section>
+      <section>Vertical Slide 2</section>
+    </section>
+  </div>
+</div>
+
+Deslizamiento horizontalDeslizamiento vertical 1Deslizamiento vertical 2
+
+Diapositiva horizontal
+También es posible escribir presentaciones usando Markdown.
+
+vista
+La ventana gráfica deReveal.js es el elemento DOM contenedor que determina el tamaño de su presentación en una página web. 
+Por defecto, este será el elemento del cuerpo. 
+Si incluye varias presentaciones en la misma página, cada elemento de presentación .reveal actuará como su ventana gráfica.
+
+La ventana gráfica siempre está decorada con una clase de ventana gráfica de revelación que se inicializa.
+
+Estados de diapositivas
+Si configura data-state="make-it-pop" en una diapositiva <section>, "make-it-pop" se aplicará como una clase en el elemento 
+de la ventana gráfica cuando se abra esa diapositiva. 
+Esto le permite aplicar amplios cambios de estilo a la página en función de la diapositiva activa.
+
+  <section data-state="make-it-pop"></section>
+  /* CSS */
+  .make-it-pop {
+    filter: drop-shadow(0 0 10px purple);
+  }
+  
+  También puede escuchar estos cambios de estado a través de JavaScript:
+  
+  Reveal.on( 'make-it-pop', () => {
+  console.log('✨');
+} );
