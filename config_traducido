@@ -1,0 +1,264 @@
+Revelar.initialize({
+
+  // Mostrar flechas de control de presentación
+  controls:true,
+
+  // Ayude al usuario a aprender los controles proporcionando sugerencias, por ejemplo,
+  // haciendo rebotar la flecha hacia abajo cuando se encuentran por primera vez con un tobogán vertical
+  controlsTutorial:true,
+
+  // Determina dónde aparecen los controles, "bordes" o "abajo a la derecha"
+  controlsLayout: 'bottom-right',
+
+  // Regla de visibilidad para flechas de navegación hacia atrás; "desvanecido", "oculto"
+  // o "visible"
+  controlsBackArrows: 'faded',
+
+  // Mostrar una barra de progreso de la presentación
+  progress: true,
+
+  // Mostrar el número de página de la diapositiva actual
+  // - verdadero: Mostrar número de diapositiva
+  // - falso: Ocultar número de diapositiva
+  //
+  // Opcionalmente se puede configurar como una cadena que especifica el formato del número:
+  // - "h.v": Horizontales. número de diapositiva vertical (predeterminado)
+  // - "h/v": número de diapositiva horizontal / vertical
+  // - "c": número de diapositiva aplanada
+  // - "c/t": Número de diapositivas aplanadas / diapositivas totales
+  //
+  // Alternativamente, puede proporcionar una función que devuelva la diapositiva
+  // número de la diapositiva actual. La función debe tomar una diapositiva.
+  // objeto y devuelve una matriz con una cadena [slideNumber] o
+  // tres cadenas [n1, delimitador, n2]. Consulte #formatSlideNumber().
+  slideNumber: false,
+
+  // Puede usarse para limitar los contextos en los que aparece el número de diapositiva
+  // - "todos": mostrar siempre el número de diapositiva
+  // - "imprimir": solo al imprimir en PDF
+  // - "altavoz": Solo en la vista de altavoz
+  showSlideNumber: 'all',
+
+  // Use la indexación basada en 1 para # enlaces para que coincida con el número de diapositiva (el valor predeterminado es cero)
+  hashOneBasedIndex: false,
+
+// Agregue el número de diapositiva actual al hash de URL para que recargar el
+  // página/copiar la URL lo regresará a la misma diapositiva
+  hash: false,
+
+  // Marca si debemos monitorear el hash y cambiar las diapositivas en consecuencia
+  respondToHashChanges: true,
+
+  // Habilitar el soporte para accesos directos de navegación de salto a diapositiva
+  jumpToSlide: true,
+
+  // Empuje cada cambio de diapositiva al historial del navegador. Implica `hash: verdadero`
+  history: false,
+
+  // Habilitar los atajos de teclado para la navegación
+  keyboard: true,
+
+  // Función opcional que bloquea los eventos del teclado al volver a sintonizar false
+  //
+  // Si establece esto en 'enfocado', solo capturaremos eventos de teclado
+  // para mazos incrustados cuando están enfocados
+  keyboardCondition: null,
+
+  // Deshabilita el diseño de diapositivas de unlock.js predeterminado (escalado y centrado)
+  // para que pueda usar un diseño CSS personalizado
+  disableLayout: false,
+
+  // Habilitar el modo de vista general de diapositivas
+  overview: true,
+
+  // Centrado vertical de carros
+  center: true,
+
+  // Habilita la navegación táctil en dispositivos con entrada táctil
+  touch: true,
+
+  // Bucle de la presentación
+  loop: false,
+
+  // Cambiar la dirección de presentación para que sea RTL
+  rtl: false,
+
+  // Cambia el comportamiento de nuestras direcciones de navegación.
+  //
+  // "por defecto"
+  // Teclas de flecha izquierda/derecha paso entre diapositivas horizontales, arriba/abajo
+  // las teclas de flecha pasan entre diapositivas verticales. Pasos clave de espacio a través
+  // todas las diapositivas (tanto horizontales como verticales).
+  //
+  // "lineal"
+  // Elimina las flechas arriba/abajo. Las flechas izquierda/derecha recorren todo
+  // diapositivas (tanto horizontales como verticales).
+  //
+  // "red"
+  // Cuando esto está habilitado, caminar hacia la izquierda/derecha desde una pila vertical
+  // a una pila vertical adyacente te llevará a la misma vertical
+  // índice.
+  //
+  // Considere una plataforma con seis diapositivas ordenadas en dos pilas verticales:
+  // 1.1 2.1
+  // 1.2 2.2
+  // 1.3 2.3
+  //
+  // Si está en la diapositiva 1.3 y navega hacia la derecha, normalmente se moverá
+  // de 1.3 -> 2.1. Si se usa "cuadrícula", la misma navegación lo lleva
+  // de 1.3 -> 2.3.
+  navigationMode: 'default',
+
+// Aleatoriza el orden de las diapositivas cada vez que se carga la presentación
+  shuffle: false,
+
+  // Activa y desactiva fragmentos globalmente
+  fragments: true,
+
+  // Marca si incluir el fragmento actual en la URL,
+  // para que la recarga te lleve a la misma posición del fragmento
+  fragmentInURL: true,
+
+  // Marca si la presentación se está ejecutando en un modo incrustado,
+  // es decir, contenido dentro de una porción limitada de la pantalla
+  embedded: false,
+
+  // Marca si debemos mostrar una superposición de ayuda cuando el signo de interrogación
+  // se presiona la tecla
+  help: true,
+
+  // Marca si debería ser posible pausar la presentación (apagón)
+  pause: true,
+
+  // Marca si las notas del orador deben ser visibles para todos los espectadores
+  showNotes: false,
+
+  // Anulación global para la colocación automática de medios incrustados (video/audio/iframe)
+  // - nulo: los medios solo se reproducirán automáticamente si la reproducción automática de datos está presente
+  // - verdadero: todos los medios se reproducirán automáticamente, independientemente de la configuración individual
+  // - falso: ningún medio se reproducirá automáticamente, independientemente de la configuración individual
+  autoPlayMedia: null,
+
+  // Anulación global para precargar iframes con carga diferida
+  // - nulo: los iframes con data-src Y data-preload se cargarán cuando estén dentro
+  // el viewDistance, los iframes con solo data-src se cargarán cuando estén visibles
+  // - verdadero: Todos los iframes con data-src se cargarán cuando estén dentro de viewDistance
+  // - false: Todos los iframes con data-src se cargarán solo cuando estén visibles
+  preloadIframes: null,
+
+  // Se puede usar para deshabilitar globalmente la animación automática
+  autoAnimate: true,
+
+  // Opcionalmente, proporcione un elemento personalizado de comparación que será
+  // utilizado para dictar entre qué elementos podemos animar.
+  autoAnimateMatcher: null,
+
+  // La configuración predeterminada para nuestras transiciones de animación automática se puede
+  // anulado por diapositiva o por elemento a través de argumentos de datos
+  autoAnimateEasing: 'ease',
+  autoanimateDuration: 1.0,
+  autoAnimateUnmatched: true,
+
+  // Propiedades CSS que se pueden animar automáticamente. Posición y escala
+  // se compara por separado, por lo que no es necesario incluir estilos
+  // como arriba/derecha/abajo/izquierda, ancho/alto o margen.
+  autoAnimateStyles: [
+    'opacity',
+    'color',
+    'background-color',
+    'padding',
+    'font-size',
+    'line-height',
+    'letter-spacing',
+    'border-width',
+    'border-color',
+    'border-radius',
+    'outline',
+    'outline-offset'
+  ],
+
+// Controla la progresión automática a la siguiente diapositiva
+  // - 0: el deslizamiento automático solo ocurre si el atributo HTML data-autoslide
+  // está presente en la diapositiva o fragmento actual
+  // - 1+: Todas las diapositivas avanzarán automáticamente en el intervalo dado
+  // - false: Sin deslizamiento automático, incluso si está presente data-autoslide
+  autoSlide: 0,
+
+  // Detener el deslizamiento automático después de la entrada del usuario
+  AutoSlideStoppable: true,
+
+  // Use este método para la navegación cuando se deslice automáticamente (el valor predeterminado es navegarSiguiente)
+  AutoSlideMethod: null,
+
+  // Especifique el tiempo promedio en segundos que cree que dedicará
+  // presentando cada diapositiva. Esto se utiliza para mostrar un temporizador de estimulación en el
+  // vista del altavoz
+  defaultTiming: null,
+
+  // Habilitar la navegación de diapositivas a través de la rueda del mouse
+  mouseWheel: false,
+
+  // Abre enlaces en una superposición de vista previa de iframe
+  // Agrega `data-preview-link` y `data-preview-link="false"` para personalizar cada enlace
+  // individualmente
+  previewLinks: false,
+
+  // Expone la API revela.js a través de window.postMessage
+  postMessage: true,
+
+  // Envía todos los eventos develar.js a la ventana principal a través de postMessage
+  postMessageEvents: false,
+
+  // Enfoca el cuerpo cuando la página cambia de visibilidad para garantizar que los atajos de teclado funcionen
+  focusBodyOnPageVisibilityChange: true,
+
+  // estilo de transicion
+  transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+  // Velocidad de transición
+  TransitionSpeed: 'default', // default/fast/slow
+
+  // Estilo de transición para fondos de diapositivas de página completa
+  backgroundTransition: 'fade', // none/fade/slide/convex/concave/zoom
+
+ // El número máximo de páginas en las que se puede expandir una sola diapositiva al imprimir
+  // a PDF, ilimitado por defecto
+  pdfMaxPagesPerSlide: Number.POSITIVE_INFINITY,
+
+  // Imprime cada fragmento en una diapositiva separada
+  pdfSeparateFragments: true,
+
+  // Desplazamiento utilizado para reducir la altura del contenido dentro de las páginas PDF exportadas.
+  // Esto existe para dar cuenta de las diferencias ambientales basadas en cómo
+  // imprimir en PDF. Las opciones de impresión CLI, como phantomjs y wkpdf, pueden finalizar
+  // precisamente en la altura total del documento mientras que en el navegador
+  // la impresión tiene que terminar un píxel antes.
+  pdfPageHeightOffset: -1,
+
+  // Número de diapositivas alejadas de la actual que son visibles
+  viewdistance: 3,
+
+  // Número de diapositivas alejadas de la actual que son visibles en el móvil
+  // dispositivos. Es aconsejable configurarlo en un número más bajo que
+  // viewDistance para ahorrar recursos.
+mobileViewDistance: 2,
+
+  // El modo de visualización que se usará para mostrar las diapositivas
+  display: 'block',
+
+  // Ocultar cursor si está inactivo
+  hideInactiveCursor: true,
+
+  // Tiempo antes de que se oculte el cursor (en ms)
+  hideCursorTime: 5000
+
+});
+
+Reconfigurando
+La configuración se puede actualizar después de la inicialización utilizando el método de configuración.
+
+// Desactiva AutoSlide
+Reveal.configure({ autoSlide: 0 });
+
+// Empezar a deslizarse automáticamente cada 5s
+Reveal.configure({ autoSlide: 5000 });
