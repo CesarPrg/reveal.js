@@ -28,11 +28,11 @@ código fuente de Reveal.js.
 
 1.- Instale Node.js (10.0.0 o posterior)
 2.- Clone el repositorio revela.js
-  $ clon de git https://github.com/hakimel/reveal.js.git
+  $ git clone https://github.com/hakimel/reveal.js.git
 3.- Mover a la carpeta revela.js e instalar las dependencias
-  $ cd revelar.js && npm instalar
+  $ cd revelar.js && npm install
 4.- Servir la presentación y monitorear los archivos de origen para detectar cambios
-  $ npm inicio
+  $ npm init
 5.- Abra http://localhost:8000 para ver su presentación
 
 Puerto del servidor de desarrollo
